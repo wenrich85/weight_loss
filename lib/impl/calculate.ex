@@ -25,5 +25,6 @@ defmodule WeightLoss.Impl.Calculate do
 
   defp age_calculator(age, date\\ Date.utc_today()) do
     Date.diff(date, age)
+    |> div(365)
   end
 end
