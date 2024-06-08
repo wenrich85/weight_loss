@@ -12,7 +12,6 @@ defmodule WeightLoss.Impl.WeightGoal do
 
   @caloric_pound 3500
 
-  @spec new() :: WeightLoss.Impl.WeightGoal.t()
   def new, do: %__MODULE__{}
   @spec new(map()) :: WeightGoal.t()
   def new(%{goal_weight: weight, percentage_to_lose_weekly: wk_percent, percentage_from_calories: cal_percent, start_date: date}) do

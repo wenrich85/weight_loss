@@ -30,4 +30,11 @@ defmodule WeightLoss.PersonTest do
       assert age == Person.age(person)
     end
 
+    test "converts person with imperial data to metric data", %{person_details: person_details} do
+      person = Person.new(person_details, :imperial)
+
+      assert person.weight == person_details.weight * 0.45359237
+      assert person.height == person_details.height * 2.54
+    end
+
 end

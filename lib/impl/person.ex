@@ -21,10 +21,25 @@ defmodule WeightLoss.Impl.Person do
     }
   end
 
+  def new(%{}=person, :imperial) do
+    person
+    |> Map.update!(:weight, &convert_lbs_to_kg/1)
+    |> Map.update!(:height, &convert_inches_to_cm/1)
+    |> new()
+  end
+
   @spec age(Person.t()) :: integer
   def age(%{dob: dob}=_person) do
     Date.diff(Date.utc_today(), dob)
     |> div(365)
+  end
+
+  defp convert_lbs_to_kg(weight) do
+    weight * 0.45359237
+  end
+
+  defp convert_inches_to_cm(height) do
+    height * 2.54
   end
 
 end
