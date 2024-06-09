@@ -1,4 +1,5 @@
 defmodule WeightLoss.Impl.Calculate do
+alias WeightLoss.Impl.TotalDailyEnergyExpenditure
 
   def bmr(%{weight: weight_in_kg, height: height_in_cm, gender: ~c"m"}=person) do
     88.362 + (13.397 * weight_in_kg) + (4.799 * height_in_cm) - (5.677 * age_calculator(person.dob))
@@ -12,14 +13,8 @@ defmodule WeightLoss.Impl.Calculate do
     |> IO.inspect()
   end
 
-  def create_tdee_map(bmr) do
-    %{
-      sedentary: bmr * 1.2 ,
-      lightly_active: bmr * 1.375,
-      moderately_active: bmr * 1.55,
-      very_active: bmr * 1.725,
-      super_active: bmr * 1.9
-    }
+  def create_tdee_list(bmr) do
+    TotalDailyEnergyExpenditure.create_tdee_list(bmr)
   end
 
 

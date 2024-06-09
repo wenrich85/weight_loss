@@ -10,8 +10,8 @@ alias WeightLoss.Impl.Person
     WeightLoss.Impl.Calculate.bmr(person)
   end
 
-  def calculater_tdee(bmr) do
-    Calculate.create_tdee_map(bmr)
+  def get_tdee_options(bmr) do
+    Calculate.create_tdee_list(bmr)
   end
   def recurse(number, list, goal, step) when number >= goal do
     list = [number | list]
