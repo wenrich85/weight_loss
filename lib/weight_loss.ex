@@ -22,8 +22,12 @@ alias WeightLoss.Impl.Manager
     Manager.set_activity_level(manager, activity_level)
   end
 
-  def set_loss_rate(manager, loss_rate) do
+  def set_loss_rate_by_lbs(manager, loss_rate) do
     Manager.set_loss_rate_by_lbs(manager, loss_rate)
+  end
+
+  def set_loss_rate(manager, loss_rate) do
+    Manager.set_loss_rate(manager, loss_rate)
   end
 
   def set_start_date(manager, start_date \\ Date.utc_today()) do
